@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_image">
+
+    <!-- Toolbar at the top -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00c6e7"
+        app:title="Electricity Bill Estimator"
+        app:titleTextColor="@android:color/white"
+        app:titleTextAppearance="@style/ToolbarTitleText"
+        android:elevation="4dp"/>
+
+
+    <!-- Scrollable content below -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- The ONLY direct child of ScrollView -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Instructions -->
+            <TextView
+                android:id="@+id/tvInstructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Enter the month, usage, and rebate.\n• Tap Calculate to estimate.\n• To view past bills, tap the green history icon at the top right."
+                android:textSize="12sp"
+                android:textColor="#7A7A7A"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="12dp"
+                android:lineSpacingExtra="2dp"
+                android:background="@drawable/instructions_bg"
+                android:padding="12dp"/>
+
+
+            <!-- Month Spinner -->
+            <TextView
+                android:id="@+id/tvMonthLabel"
+                android:textStyle="bold"
+                android:textColor="#222222"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"/>
+            <Spinner
+                android:id="@+id/spinnerMonth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- Unit Input -->
+            <TextView
+                android:id="@+id/tvUnitsLabel"
+                android:textStyle="bold"
+                android:textColor="#222222"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="2dp"/>
+            <EditText
+                android:id="@+id/editTextUnits"
+                android:hint="Enter units"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Rebate Percentage Picker -->
+            <TextView
+                android:id="@+id/tvRebateLabel"
+                android:textStyle="bold"
+                android:textColor="#222222"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="2dp"/>
+            <SeekBar
+                android:id="@+id/seekBarRebate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="5"/>
+            <TextView
+                android:id="@+id/textViewRebateValue"
+                android:text="0%"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:layout_gravity="end"/>
+
+            <!-- Error Message -->
+            <TextView
+                android:id="@+id/textViewError"
+                android:textColor="#B00020"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"/>
+
+            <!-- Calculate Button -->
+            <Button
+                android:id="@+id/buttonCalculate"
+                android:text="Calculate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="18dp"/>
+
+            <!-- Output Section -->
+            <TextView
+                android:id="@+id/textViewTotalCharges"
+                android:text="Total Charges: RM 0.00"
+                android:textSize="16sp"
+                android:layout_marginBottom="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/textViewFinalCost"
+                android:text="Final Cost after Rebate: RM 0.00"
+
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="28dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
