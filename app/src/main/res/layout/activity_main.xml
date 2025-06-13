@@ -40,7 +40,6 @@
                 android:text="• Enter the month, usage, and rebate.\n• Tap Calculate to estimate.\n• To view past bills, tap the green history icon at the top right."
                 android:textSize="12sp"
                 android:textColor="#7A7A7A"
-                android:gravity="center"
                 android:layout_marginBottom="16dp"
                 android:layout_marginTop="12dp"
                 android:lineSpacingExtra="2dp"
@@ -79,27 +78,91 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"/>
 
-            <!-- Rebate Percentage Picker -->
-            <TextView
-                android:id="@+id/tvRebateLabel"
-                android:textStyle="bold"
-                android:textColor="#222222"
-                android:layout_width="wrap_content"
+            <!-- Rebate Percentage Picker Label -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="2dp"/>
+                android:layout_marginBottom="2dp">
+
+                <TextView
+                    android:id="@+id/tvRebateLabel"
+                    android:text="Rebate Percentage: *"
+                    android:textStyle="bold"
+                    android:textColor="#222222"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/textViewRebateValue"
+                    android:text="0%"
+                    android:textStyle="bold"
+                    android:textColor="#13b469"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+
             <SeekBar
                 android:id="@+id/seekBarRebate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:max="5"/>
-            <TextView
-                android:id="@+id/textViewRebateValue"
-                android:text="0%"
-                android:layout_width="wrap_content"
+                android:max="5" />
+
+            <!-- Labels below the SeekBar -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="18dp"
-                android:layout_gravity="end"/>
+                android:orientation="horizontal"
+                android:weightSum="6"
+                android:layout_marginTop="2dp">
+
+                <TextView
+                    android:id="@+id/label0"
+                    android:text="0%"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/label1"
+                    android:text="1%"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/label2"
+                    android:text="2%"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/label3"
+                    android:text="3%"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/label4"
+                    android:text="4%"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/label5"
+                    android:text="5%"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+            </LinearLayout>
 
             <!-- Error Message -->
             <TextView

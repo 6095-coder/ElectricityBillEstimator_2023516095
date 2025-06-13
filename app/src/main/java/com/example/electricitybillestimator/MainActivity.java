@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         spinnerMonth = findViewById(R.id.spinnerMonth);
         editTextUnits = findViewById(R.id.editTextUnits);
         seekBarRebate = findViewById(R.id.seekBarRebate);
-        textViewRebateValue = findViewById(R.id.textViewRebateValue);
         textViewTotalCharges = findViewById(R.id.textViewTotalCharges);
         textViewFinalCost = findViewById(R.id.textViewFinalCost);
         textViewError = findViewById(R.id.textViewError);
@@ -46,10 +45,19 @@ public class MainActivity extends AppCompatActivity {
         TextView tvMonthLabel = findViewById(R.id.tvMonthLabel);
         TextView tvUnitsLabel = findViewById(R.id.tvUnitsLabel);
         TextView tvRebateLabel = findViewById(R.id.tvRebateLabel);
+        textViewRebateValue = findViewById(R.id.textViewRebateValue);
+
+        TextView label0 = findViewById(R.id.label0);
+        TextView label1 = findViewById(R.id.label1);
+        TextView label2 = findViewById(R.id.label2);
+        TextView label3 = findViewById(R.id.label3);
+        TextView label4 = findViewById(R.id.label4);
+        TextView label5 = findViewById(R.id.label5);
 
         tvMonthLabel.setText(android.text.Html.fromHtml("Month: <font color='#D32F2F'>*</font>"));
         tvUnitsLabel.setText(android.text.Html.fromHtml("Electricity Units Used (kWh): <font color='#D32F2F'>*</font>"));
         tvRebateLabel.setText(android.text.Html.fromHtml("Rebate Percentage: <font color='#D32F2F'>*</font>"));
+        TextView[] labelArray = {label0, label1, label2, label3, label4, label5};
 
         // Spinner - Set month values
         String[] months = {"Select Month", "January", "February", "March", "April", "May", "June",
@@ -66,10 +74,25 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 rebatePercent = progress;
                 textViewRebateValue.setText(progress + "%");
+
+
+                // Highlight the selected label
+                for (int i = 0; i < labelArray.length; i++) {
+                    if (i == progress) {
+                        labelArray[i].setTextColor(getResources().getColor(android.R.color.holo_blue_dark));
+
+                        // highlight color
+                        labelArray[i].setTypeface(null, android.graphics.Typeface.BOLD);
+                    } else {
+                        labelArray[i].setTextColor(getResources().getColor(android.R.color.black)); // default color
+                        labelArray[i].setTypeface(null, android.graphics.Typeface.NORMAL);
+                    }
+                }
             }
             @Override public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override public void onStopTrackingTouch(SeekBar seekBar) {}
         });
+
 
 
         // Button - Calculate logic (to be added next)
@@ -153,6 +176,11 @@ public class MainActivity extends AppCompatActivity {
             // Show feedback to user
             Toast.makeText(MainActivity.this, "Saved!", Toast.LENGTH_SHORT).show();
 
+            // Reset inputs
+            spinnerMonth.setSelection(0);           // Reset spinner to "Select Month"
+            editTextUnits.setText("");              // Clear units input
+            seekBarRebate.setProgress(0);           // Reset rebate to 0%
+            textViewRebateValue.setText("0%");      // Update text
         });
 
     }
