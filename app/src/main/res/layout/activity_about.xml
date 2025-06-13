@@ -77,7 +77,7 @@
             android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/textViewGithub"
-            android:text="https://github.com/yourusername/electricity-bill-estimator"
+            android:text="https://github.com/6095-coder/ElectricityBillEstimator_2023516095"
             android:textColor="#009688FF"
             android:autoLink="web"
             android:layout_width="wrap_content"
