@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        // Button - Calculate logic (to be added next)
+        // Button - Calculate logic
         buttonCalculate.setOnClickListener(view -> {
             // Clear previous error message
             textViewError.setText("");

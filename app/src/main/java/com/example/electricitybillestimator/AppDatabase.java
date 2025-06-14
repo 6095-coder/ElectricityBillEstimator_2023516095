@@ -14,7 +14,7 @@ public abstract class AppDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             AppDatabase.class, "bill_database")
-                    .allowMainThreadQueries() // For simplicity; for real apps use Async
+                    .allowMainThreadQueries()
                     .build();
         }
         return INSTANCE;

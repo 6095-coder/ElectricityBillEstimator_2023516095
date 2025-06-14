@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_image">
 
-    <!-- Toolbar at the top -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -19,13 +18,11 @@
         android:elevation="4dp"/>
 
 
-    <!-- Scrollable content below -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <!-- The ONLY direct child of ScrollView -->
         <LinearLayout
             android:orientation="vertical"
             android:padding="24dp"
